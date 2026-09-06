@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>День подарков</title>
+<meta name="description" content="Два дня на даче. Один вечер — чужое лицо, чужая походка, чужие интонации. Дресс-код, подарки, пожелания.">
+<meta property="og:title" content="Никто не придёт собой">
+<meta property="og:description" content="Два дня на даче. Один вечер в чужом образе. Выбери, кем будешь.">
+<meta property="og:type" content="website">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0a0608" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4ece0" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%AD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0a0608;
+    --text:#f2e9dd;
+    --text-2:#c9bab1;
+    --muted:#a1908a;
+    --accent:#d9a84e;
+    --accent-soft:#eccd8d;
+    --on-accent:#1a0d05;
+    --bad:#a05a5a;
+    --line:rgba(217,168,78,.2);
+    --line-soft:rgba(242,233,221,.1);
+    --card-a:rgba(255,255,255,.045);
+    --card-b:rgba(255,255,255,.012);
+    --tint:rgba(255,255,255,.025);
+    --curtain-a:#45091b;
+    --curtain-b:#5c0e24;
+    --curtain-op:.5;
+    --glow:rgba(217,168,78,.16);
+    --grain-op:.055;
+    --grain-blend:overlay;
+    --vig:rgba(0,0,0,.65);
+    --mask-fill:var(--accent-soft);
+    --mask-op:.5;
+    --note-a:rgba(122,18,48,.28);
+    --note-b:rgba(217,168,78,.06);
+    --nav-a:rgba(10,6,8,.93);
+    --nav-b:rgba(10,6,8,.6);
+    --shell:min(1120px,92vw);
+    --nav-h:58px;
+    --r:16px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      color-scheme:light;
+      --bg:#f4ece0;
+      --text:#241519;
+      --text-2:#5c474b;
+      --muted:#7d6a68;
+      --accent:#8a5a14;
+      --accent-soft:#6f4610;
+      --on-accent:#fff6e8;
+      --bad:#9c3b3b;
+      --line:rgba(138,90,20,.32);
+      --line-soft:rgba(36,21,25,.14);
+      --card-a:rgba(255,255,255,.8);
+      --card-b:rgba(255,255,255,.34);
+      --tint:rgba(255,255,255,.55);
+      --curtain-a:#e5cec1;
+      --curtain-b:#d9bcae;
+      --curtain-op:.55;
+      --glow:rgba(138,90,20,.14);
+      --grain-op:.03;
+      --grain-blend:multiply;
+      --vig:rgba(120,88,64,.2);
+      --mask-fill:#7a1230;
+      --mask-op:.3;
+      --note-a:rgba(122,18,48,.1);
+      --note-b:rgba(138,90,20,.07);
+      --nav-a:rgba(244,236,224,.94);
+      --nav-b:rgba(244,236,224,.62);
+    }
+  }
+  :root[data-theme="light"]{
+    color-scheme:light;
+    --bg:#f4ece0;
+    --text:#241519;
+    --text-2:#5c474b;
+    --muted:#7d6a68;
+    --accent:#8a5a14;
+    --accent-soft:#6f4610;
+    --on-accent:#fff6e8;
+    --bad:#9c3b3b;
+    --line:rgba(138,90,20,.32);
+    --line-soft:rgba(36,21,25,.14);
+    --card-a:rgba(255,255,255,.8);
+    --card-b:rgba(255,255,255,.34);
+    --tint:rgba(255,255,255,.55);
+    --curtain-a:#e5cec1;
+    --curtain-b:#d9bcae;
+    --curtain-op:.55;
+    --glow:rgba(138,90,20,.14);
+    --grain-op:.03;
+    --grain-blend:multiply;
+    --vig:rgba(120,88,64,.2);
+    --mask-fill:#7a1230;
+    --mask-op:.3;
+    --note-a:rgba(122,18,48,.1);
+    --note-b:rgba(138,90,20,.07);
+    --nav-a:rgba(244,236,224,.94);
+    --nav-b:rgba(244,236,224,.62);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-weight:300;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    transition:background .3s ease,color .3s ease;
+  }
+  h1,h2,h3,.serif{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.01em;margin:0;overflow-wrap:break-word}
+  p{margin:0}
+  a{color:inherit}
+  button{font-family:inherit}
+
+  .grain{
+    position:fixed;inset:0;z-index:100;pointer-events:none;
+    opacity:var(--grain-op);mix-blend-mode:var(--grain-blend);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .vignette{position:fixed;inset:0;z-index:99;pointer-events:none;background:radial-gradient(120% 90% at 50% 30%,transparent 40%,var(--vig) 100%)}
+
+  .shell{width:var(--shell);margin-inline:auto}
+
+  .nav{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:linear-gradient(180deg,var(--nav-a),var(--nav-b));
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-in{display:flex;align-items:center;gap:16px;height:var(--nav-h)}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.16em;font-size:11px;text-transform:uppercase;color:var(--accent);white-space:nowrap;flex:0 0 auto}
+  .brand svg{width:17px;height:17px;fill:var(--accent);flex:0 0 auto}
+  .nav-links{display:none;flex:1;gap:22px;justify-content:flex-end}
+  .nav-links a{
+    text-decoration:none;color:var(--muted);font-size:13.5px;letter-spacing:.03em;white-space:nowrap;
+    padding:18px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+  }
+  .nav-links a:hover{color:var(--text);border-color:var(--accent)}
+  .nav-in .spacer{flex:1}
+  .burger{
+    flex:0 0 auto;width:38px;height:38px;padding:0;cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+    border:1px solid var(--line-soft);border-radius:50%;background:transparent;
+    transition:border-color .2s,background .2s;
+  }
+  .burger i{display:block;width:15px;height:1.5px;border-radius:2px;background:var(--muted);transition:transform .26s ease,background .2s}
+  .burger[aria-expanded="true"]{border-color:var(--line)}
+  .burger[aria-expanded="true"] i{background:var(--accent)}
+  .burger[aria-expanded="true"] i:first-child{transform:translateY(3.25px) rotate(45deg)}
+  .burger[aria-expanded="true"] i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+  .menu{
+    position:fixed;inset:var(--nav-h) 0 0;z-index:55;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:0 max(28px,4vw) calc(40px + env(safe-area-inset-bottom));
+    background:var(--bg);
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .28s ease,transform .28s ease,visibility .28s;
+  }
+  .menu.open{opacity:1;visibility:visible;transform:none}
+  .menu a{
+    position:relative;z-index:2;display:block;text-decoration:none;
+    font-family:"Playfair Display",Georgia,serif;font-weight:700;
+    font-size:clamp(28px,8.4vw,42px);line-height:1.24;color:var(--text);
+    padding:12px 0;border-bottom:1px solid var(--line-soft);
+  }
+  .menu a:last-of-type{border-bottom:0}
+  .menu a:active{color:var(--accent)}
+  .menu .m-note{position:relative;z-index:2;margin-top:26px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .menu .m-mask{position:absolute;right:-14%;bottom:-6%;width:min(62vw,320px);fill:var(--mask-fill);opacity:.13;pointer-events:none}
+  body.locked{overflow:hidden}
+  .theme{
+    flex:0 0 auto;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;
+    border:1px solid var(--line-soft);border-radius:50%;background:transparent;color:var(--muted);
+    transition:color .2s,border-color .2s,background .2s;
+  }
+  .theme:hover{color:var(--accent);border-color:var(--line);background:var(--tint)}
+  .theme svg{width:17px;height:17px;fill:currentColor}
+  :root[data-effective="dark"] .ico-sun,:root[data-effective="light"] .ico-moon{display:none}
+
+  .hero{
+    position:relative;overflow:hidden;display:flex;align-items:center;
+    min-height:calc(100vh - var(--nav-h));
+    min-height:calc(100svh - var(--nav-h));
+    padding:clamp(44px,8vh,120px) 0 clamp(92px,13vh,140px);
+  }
+  .scroll-cue{
+    position:absolute;left:50%;bottom:clamp(18px,4vh,38px);transform:translateX(-50%);z-index:3;
+    display:flex;flex-direction:column;align-items:center;gap:7px;text-decoration:none;
+    font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);
+    transition:opacity .4s ease,color .2s;
+  }
+  .scroll-cue:hover{color:var(--accent)}
+  .scroll-cue svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;animation:nudge 2.2s ease-in-out infinite}
+  .scroll-cue.hide{opacity:0;pointer-events:none}
+  @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+  .curtain{
+    position:absolute;inset:0 0 auto;height:52%;pointer-events:none;opacity:var(--curtain-op);
+    background:repeating-linear-gradient(90deg,var(--curtain-a) 0 34px,var(--curtain-b) 34px 46px,var(--curtain-a) 46px 76px);
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.75),transparent 88%);
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.75),transparent 88%);
+  }
+  .glow{position:absolute;left:50%;top:-22%;width:min(1000px,120vw);aspect-ratio:1;transform:translateX(-50%);pointer-events:none;background:radial-gradient(circle,var(--glow),transparent 62%)}
+  .reveal{
+    position:absolute;inset:0;pointer-events:none;
+    -webkit-mask-image:radial-gradient(circle 240px at var(--mx,50%) var(--my,42%),#000 0%,rgba(0,0,0,.55) 45%,transparent 72%);
+    mask-image:radial-gradient(circle 240px at var(--mx,50%) var(--my,42%),#000 0%,rgba(0,0,0,.55) 45%,transparent 72%);
+  }
+  .reveal .m{position:absolute;fill:var(--mask-fill);opacity:var(--mask-op)}
+  .hero-in{position:relative;z-index:2;text-align:center;max-width:860px;margin-inline:auto}
+  .overline{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:500;
+    border:1px solid var(--line);border-radius:999px;padding:8px 18px;background:var(--tint);
+  }
+  h1{font-size:clamp(38px,8.4vw,96px);margin:24px 0 0}
+  h1 em{font-style:italic;font-weight:500;color:var(--accent-soft)}
+  .lede{margin-top:20px;font-size:clamp(15.5px,2.1vw,20px);color:var(--text-2);max-width:610px;margin-inline:auto}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;
+    min-height:48px;padding:13px 26px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:.02em;
+    border:1px solid var(--accent);color:var(--accent);background:transparent;cursor:pointer;
+    transition:background .22s,color .22s,transform .22s,box-shadow .22s;
+  }
+  .btn:hover{background:var(--accent);color:var(--on-accent);transform:translateY(-2px);box-shadow:0 10px 30px -12px var(--accent)}
+  .btn.ghost{border-color:var(--line-soft);color:var(--muted)}
+  .btn.ghost:hover{background:transparent;color:var(--text);border-color:var(--text);box-shadow:none}
+  .btn[aria-disabled="true"]{opacity:.55;cursor:default}
+  .btn[aria-disabled="true"]:hover{background:transparent;color:var(--accent);transform:none;box-shadow:none}
+
+  .count{display:flex;gap:clamp(12px,4vw,40px);justify-content:center;margin-top:42px}
+  .count div{min-width:56px}
+  .count b{display:block;font-family:"Playfair Display",serif;font-size:clamp(25px,4.6vw,40px);font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+  .count span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+  section.band{padding:clamp(52px,9vh,110px) 0;position:relative}
+  .band + .band{border-top:1px solid var(--line-soft)}
+  .head{max-width:660px;margin-bottom:40px}
+  .kicker{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);font-weight:500}
+  .head h2{font-size:clamp(27px,5vw,48px);margin-top:14px}
+  .head p{margin-top:16px;color:var(--text-2)}
+
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+  .card{
+    border:1px solid var(--line-soft);border-radius:var(--r);padding:26px;
+    background:linear-gradient(160deg,var(--card-a),var(--card-b));
+    transition:border-color .25s,transform .25s;
+  }
+  .card:hover{border-color:var(--line);transform:translateY(-3px)}
+  .card h3{font-size:21px;margin-bottom:10px}
+  .card p{color:var(--text-2);font-size:15.5px}
+  .card .num{font-family:"Playfair Display",serif;font-size:13px;color:var(--accent);letter-spacing:.2em}
+
+  .place{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:stretch}
+  .fact{display:flex;flex-direction:column;border:1px solid var(--line-soft);border-radius:var(--r);padding:24px;background:var(--tint)}
+  .fact .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+  .fact .v{font-family:"Playfair Display",serif;font-size:25px;margin-top:10px;line-height:1.2}
+  .fact .s{color:var(--text-2);font-size:14.5px;margin-top:8px}
+  .fact .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:16px}
+  .mini{
+    display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:13px;min-height:40px;
+    padding:9px 15px;border-radius:999px;border:1px solid var(--line-soft);color:var(--muted);
+    transition:color .2s,border-color .2s,background .2s;cursor:pointer;background:transparent;font-family:inherit;
+  }
+  .mini:hover{color:var(--accent);border-color:var(--line);background:var(--tint)}
+
+  .rules{counter-reset:r;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));margin-bottom:48px}
+  .rule{position:relative;padding:22px 22px 22px 60px;border:1px solid var(--line-soft);border-radius:var(--r);background:var(--tint)}
+  .rule::before{
+    counter-increment:r;content:counter(r,decimal-leading-zero);
+    position:absolute;left:22px;top:20px;font-family:"Playfair Display",serif;font-size:19px;color:var(--accent);opacity:.8;
+  }
+  .rule b{display:block;font-weight:500;font-size:16px;margin-bottom:6px}
+  .rule span{color:var(--text-2);font-size:14.5px}
+
+  .cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .col-head{display:flex;align-items:center;gap:11px;margin-bottom:18px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+  .col-head .dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+  .ok .dot{background:var(--accent);box-shadow:0 0 12px var(--accent)}
+  .no .dot{background:var(--bad)}
+  .ok .col-head{color:var(--accent)}
+  .no .col-head{color:var(--bad)}
+  .who{
+    border:1px solid var(--line-soft);border-radius:13px;padding:17px 19px;margin-bottom:11px;
+    background:var(--tint);transition:border-color .22s,background .22s;
+  }
+  .who:hover{border-color:var(--line)}
+  .who .n{font-family:"Playfair Display",serif;font-size:19px;font-weight:700}
+  .who .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+  .tag{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line-soft);color:var(--muted)}
+  .tag.act{border-color:var(--line);color:var(--accent-soft)}
+  .who .why{margin-top:9px;font-size:14.5px;color:var(--text-2)}
+
+  .mask-note{
+    margin-top:48px;border:1px solid var(--line);border-radius:var(--r);
+    background:linear-gradient(140deg,var(--note-a),var(--note-b));
+    padding:clamp(22px,4vw,38px);display:grid;gap:22px;grid-template-columns:minmax(0,1fr);
+  }
+  @media(min-width:820px){.mask-note{grid-template-columns:96px minmax(0,1fr);align-items:start;gap:26px}}
+  .mask-note .icon svg{width:72px;height:72px;fill:var(--accent-soft);opacity:.9}
+  .mask-note h3{font-size:24px;margin-bottom:12px}
+  .mask-note p{color:var(--text-2);font-size:15.5px}
+  .mask-note ul{margin:16px 0 0;padding-left:20px;color:var(--text-2);font-size:15px}
+  .mask-note li{margin-bottom:7px}
+  .mask-note li b{font-weight:500;color:var(--text)}
+
+  .act-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .pending{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.8}
+
+  footer{border-top:1px solid var(--line-soft);padding:52px 0 64px;text-align:center}
+  footer .line{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(18px,3vw,26px);color:var(--accent-soft)}
+  footer .sub{margin-top:14px;color:var(--muted);font-size:13.5px}
+
+  .fx{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .fx.in{opacity:1;transform:none}
+
+  @media(max-width:640px){
+    body{font-size:16px}
+    .card{padding:21px}
+    .fact{padding:20px}
+    .rule{padding:20px 18px 20px 54px}
+    .rule::before{left:18px}
+    .who{padding:15px 16px}
+    .mask-note .icon svg{width:56px;height:56px}
+    .count b{font-size:29px}
+    .cta .btn{flex:1 1 100%}
+  }
+  @media(min-width:761px){
+    .nav-links{display:flex}
+    .burger,.nav-in .spacer{display:none}
+    .menu{display:none}
+  }
+  @media(hover:none){
+    .card:hover,.btn:hover{transform:none;box-shadow:none}
+    .btn:hover{background:transparent;color:var(--accent)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .fx{opacity:1;transform:none;transition:none}
+    .scroll-cue svg{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mask-a" viewBox="0 0 100 122">
+    <path d="M50 3c23 0 35 14 35 39 0 35-19 77-35 77S15 77 15 42C15 17 27 3 50 3Zm-23 42c5-8 16-9 21-2-6 7-16 8-21 2Zm25 0c5-7 16-6 21 2-5 6-15 5-21-2ZM33 84c10 7 24 7 34 0-9 12-25 12-34 0Z"/>
+  </symbol>
+  <symbol id="mask-b" viewBox="0 0 100 122">
+    <path d="M50 3c23 0 35 14 35 39 0 35-19 77-35 77S15 77 15 42C15 17 27 3 50 3Zm-24 40c6-9 17-9 22 0-6 6-16 6-22 0Zm26 0c5-9 16-9 22 0-6 6-16 6-22 0ZM32 92c9-12 27-12 36 0-11-6-25-6-36 0Z"/>
+  </symbol>
+  <symbol id="ico-moon" viewBox="0 0 24 24"><path d="M21 13.5A9 9 0 1 1 10.5 3a7.5 7.5 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="ico-sun" viewBox="0 0 24 24"><path d="M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-14.5a1 1 0 0 1 1 1V5a1 1 0 1 1-2 0V3.5a1 1 0 0 1 1-1Zm0 16a1 1 0 0 1 1 1V21a1 1 0 1 1-2 0v-1.5a1 1 0 0 1 1-1ZM3.5 11H5a1 1 0 1 1 0 2H3.5a1 1 0 1 1 0-2Zm15.5 0h1.5a1 1 0 1 1 0 2H19a1 1 0 1 1 0-2ZM5.6 4.2 6.7 5.3a1 1 0 0 1-1.4 1.4L4.2 5.6a1 1 0 0 1 1.4-1.4Zm12.7 12.7 1.1 1.1a1 1 0 0 1-1.4 1.4l-1.1-1.1a1 1 0 0 1 1.4-1.4ZM18.4 4.2a1 1 0 0 1 1.4 1.4l-1.1 1.1a1 1 0 1 1-1.4-1.4ZM5.7 16.9a1 1 0 0 1 1.4 1.4l-1.1 1.1a1 1 0 0 1-1.4-1.4Z"/></symbol>
+</svg>
+
+<nav class="nav">
+  <div class="shell nav-in">
+    <a class="brand" href="#top" style="text-decoration:none"><svg><use href="#mask-a"/></svg><span>Инкогнито</span></a>
+    <div class="nav-links">
+      <a href="#event">Событие</a>
+      <a href="#place">Место</a>
+      <a href="#dress">Дресс-код</a>
+      <a href="#gifts">Подарки</a>
+      <a href="#wishes">Пожелания</a>
+    </div>
+    <span class="spacer"></span>
+    <button class="theme" id="theme" type="button" aria-label="Переключить тему">
+      <svg class="ico-moon"><use href="#ico-moon"/></svg>
+      <svg class="ico-sun"><use href="#ico-sun"/></svg>
+    </button>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="menu">
+      <i></i><i></i>
+    </button>
+  </div>
+</nav>
+
+<div class="menu" id="menu">
+  <svg class="m-mask" viewBox="0 0 100 122" aria-hidden="true"><use href="#mask-a"/></svg>
+  <a href="#event">Событие</a>
+  <a href="#place">Место</a>
+  <a href="#dress">Дресс-код</a>
+  <a href="#gifts">Подарки</a>
+  <a href="#wishes">Пожелания</a>
+  <div class="m-note">3–4 октября · дача</div>
+</div>
+
+<header class="hero" id="top">
+  <div class="curtain"></div>
+  <div class="glow"></div>
+  <div class="reveal" id="reveal">
+    <svg class="m" style="left:4%;top:14%;width:86px;transform:rotate(-13deg)" viewBox="0 0 100 122"><use href="#mask-a"/></svg>
+    <svg class="m" style="right:6%;top:9%;width:104px;transform:rotate(11deg)" viewBox="0 0 100 122"><use href="#mask-b"/></svg>
+    <svg class="m" style="left:12%;bottom:8%;width:70px;transform:rotate(19deg)" viewBox="0 0 100 122"><use href="#mask-b"/></svg>
+    <svg class="m" style="right:14%;bottom:12%;width:92px;transform:rotate(-8deg)" viewBox="0 0 100 122"><use href="#mask-a"/></svg>
+    <svg class="m" style="left:44%;top:2%;width:58px;transform:rotate(4deg)" viewBox="0 0 100 122"><use href="#mask-a"/></svg>
+  </div>
+
+  <div class="shell hero-in">
+    <span class="overline">2–4 октября</span>
+    <h1>Никто не придёт <em>собой</em></h1>
+    <p class="lede">2 дня наслаждаемся чистым воздухом. Находясь в обществе, мы вынуждены носить маски. Но что если надеть маску известного человека? Один из вечером раскроет в нас навыки перевоплощения.</p>
+    <div class="cta">
+      <a class="btn" href="#dress">Выбрать образ</a>
+      <a class="btn ghost" href="#event">Что вообще происходит</a>
+    </div>
+    <div class="count" id="count" aria-label="Обратный отсчёт">
+      <div><b data-c="d">—</b><span>дней</span></div>
+      <div><b data-c="h">—</b><span>часов</span></div>
+      <div><b data-c="m">—</b><span>минут</span></div>
+      <div><b data-c="s">—</b><span>секунд</span></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#event">
+    <span>Листай</span>
+    <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</header>
+
+<section class="band" id="event">
+  <div class="shell">
+    <div class="head fx">
+      <div class="kicker">Что за мероприятие</div>
+      <h2>Два дня дачи, один вечер театра</h2>
+      <p>Дел много: мангал, застолье, баня, еда, общение, перекур, покушать, настолка, перекус. Но в субботу вечером включается правило — каждый держит образ известного человека, которого выбрал заранее. Не только костюм: манера, голос, жесты, фирменные фразы.</p>
+    </div>
+
+    <div class="grid g3 fx">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Выбираешь личность</h3>
+        <p>Заранее, до приезда. Кого-то, кого узнает вся комната. Никому не говоришь — интрига держится до вечера.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Собираешь образ</h3>
+        <p>Если выбранная личность выделяется своим стилем в одежде, то можно отразить это характерными чертами или цельным луком. Плюс карнавальная тканевая маска, если нужна.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Играешь весь вечер</h3>
+        <p>Звучит строго, но главная цель — повеселиться и получить удовольствие от игры в другого человека. Со стороны тоже будет забавно наблюдать Сталина и Киркорова за одним столом.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="place">
+  <div class="shell">
+    <div class="head fx">
+      <div class="kicker">Где и когда</div>
+      <h2>На природе</h2>
+      <p>Мест всем хватит — проверено. Отпишите кто не сможет на оба дня</p>
+    </div>
+
+    <div class="place fx">
+      <div class="fact">
+        <div class="k">Когда</div>
+        <div class="v">2–4 октября</div>
+        <div class="s">Встречаемся в пятницу после работы/учебы. Торжество в субботу вечером. Утром (днем) воскресенья раздупляемся и собираемся.</div>
+        <div class="row">
+          <a class="mini" id="cal" href="#" target="_blank" rel="noopener">Добавить в календарь</a>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="k">Где</div>
+        <div class="v">Дача Виктории</div>
+        <div class="s">Недалеко от Сергиева Посада. Точный адрес будет в чате.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="dress">
+  <div class="shell">
+    <div class="head fx">
+      <div class="kicker">Дресс-код</div>
+      <h2>Стань кем-то, кого узнают все</h2>
+      <p>Единого дресс-кода нет. Есть одно правило: ты приходишь как конкретный известный человек и весь праздничный вечер играешь его. Костюм — половина дела, вторая половина — поведение.</p>
+    </div>
+
+    <div class="rules fx">
+      <div class="rule"><b>Стопроцентная узнаваемость</b><span>Если хотя бы трое из гостей не поймут, кто ты, — образ не сработал. Проще всего с русскими и советскими лицами: их знают все поколения за столом.</span></div>
+      <div class="rule"><b>Один сильный маркер</b><span>Усы, кепка, очки, малиновый пиджак, перья, гитара. Деталь, которую видно с другого конца комнаты и по которой опознают за секунду.</span></div>
+      <div class="rule"><b>Есть что пародировать</b><span>Голос, походка, жест, коронная фраза. Костюм без манеры — это просто одежда. Выбирай того, кого можешь показать, а не только надеть.</span></div>
+      <div class="rule"><b>В этом можно провести вечер</b><span>Сидеть, есть, выходить на улицу, обниматься. Конструкция, в которой нельзя сесть за стол, умрёт через двадцать минут.</span></div>
+      <div class="rule"><b>Без дублей</b><span>Кинь в чат, кого берёшь — двух Киркоровых за столом быть не должно. Кто первый занял, того и образ.</span></div>
+      <div class="rule"><b>Без тяжёлых тем</b><span>Диктаторы, трагедии, всё, что упирается в политику и религию, — мимо. Вечер должен быть смешным, а не неловким.</span></div>
+    </div>
+
+    <div class="cols fx">
+      <div class="ok">
+        <div class="col-head"><span class="dot"></span>Подходит</div>
+
+        <div class="who">
+          <div class="n">Леонид Якубович</div>
+          <div class="tags"><span class="tag">усы, костюм, барабан</span><span class="tag act">«Приз в студию!»</span></div>
+          <div class="why">Голос, интонация ведущего, вручение любого предмета как приза. Карнавальная тканевая маска с его лицом популярнее остальных.</div>
+        </div>
+
+        <div class="who">
+          <div class="n">Иван Ургант</div>
+          <div class="tags"><span class="tag">пиджак, рост, чёлка</span><span class="tag act">шутит поверх всех</span></div>
+          <div class="why">Костюм простой, вся работа в поведении: ведёт стол, комментирует, перебивает тостующих.</div>
+        </div>
+
+        <div class="who">
+          <div class="n">Данила Багров</div>
+          <div class="tags"><span class="tag">крупный свитер, плеер</span><span class="tag act">тихо, в лоб, честно</span></div>
+          <div class="why">Персонаж вместо реального человека — тоже отлично, если фильм видели все. Реквизит — из своего шкафа.</div>
+        </div>
+
+      <div class="no">
+        <div class="col-head"><span class="dot"></span>Не вариант</div>
+
+        <div class="who">
+          <div class="n">Кира Найтли</div>
+          <div class="why">Нет особого стиля в одежде, особенностей поведения, черт характера, выраженного мнения на базовые темы. Просто красивая женщина, сложно угадывать и еще сложнее пародировать</div>
+        </div>
+
+    </div>
+
+    <div class="mask-note fx">
+      <div class="icon"><svg viewBox="0 0 100 122"><use href="#mask-b"/></svg></div>
+      <div>
+        <h3>Про карнавальную тканевую маску</h3>
+        <p>Тканевые маски с лицами знаменитостей (Якубович — классика жанра) стоят копейки, ищутся по запросу «карнавальная тканевая маска» на любом маркетплейсе и решают проблему сходства за один вечер. Брать её стоит в двух случаях.</p>
+        <ul>
+          <li><b>Для полного погружения.</b> Костюм и манера уже собраны, и хочется, чтобы сходство било наотмашь с первой секунды — на выход, на угадывание, на фото.</li>
+          <li><b>Если у персонажа нет невербальных черт.</b> Некого копировать походкой и жестами: узнаваемость держится только на лице. Тогда маска и делает всю работу.</li>
+          <li>Заказывай заранее — доставка может занять неделю-полторы.</li>
+          <li>Носи её эпизодами: в ней жарко, плохо слышно и неудобно есть.</li>
+          <li>Маска закрывает мимику — а мимика тут половина игры. Сняв её, продолжай держать манеру и голос.</li>
+          <li>Маска — усилитель, а не замена образу. Костюм и поведение всё равно нужны.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="gifts">
+  <div class="shell">
+    <div class="head fx" style="margin-bottom:26px">
+      <div class="kicker">Подарки</div>
+      <h2>«Ой, ну не стоило»</h2>
+      <p>День подарков — чисто формальное название, в любом случае буду рад организовать торжество и лишний раз собрать компанию приятных людей под крышей любимой дачи. Но подарки это тоже здорово, жаль что мне особо ничего не нужно. Если появятся идеи, то создам вишлист</p>
+    </div>
+    <div class="act-row fx">
+      <a class="btn" id="wishlist" href="#" aria-disabled="true" target="_blank" rel="noopener">Открыть вишлист</a>
+      <span class="pending">Ссылка появится здесь</span>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="wishes">
+  <div class="shell">
+    <div class="head fx" style="margin-bottom:26px">
+      <div class="kicker">Пожелания</div>
+      <h2>Заказ алкоголя</h2>
+      <p>Короткая форма на 2 минуты: какой алкоголь хотите, пожелания по еде, другие идеи</p>
+    </div>
+    <div class="act-row fx">
+      <a class="btn" id="form" href="#" aria-disabled="true" target="_blank" rel="noopener">Заполнить форму</a>
+      <span class="pending">Ссылка появится здесь</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <div class="line">Все пройдет как лом через говно.</div>
+    <div class="sub">Любые вопросы — в чат мероприятия.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var TARGET = new Date('2026-10-02T18:00:00+03:00');
+  var root = document.documentElement;
+  var media = matchMedia('(prefers-color-scheme: dark)');
+
+  function stored(){
+    try { return localStorage.getItem('theme'); } catch(e){ return null; }
+  }
+  function apply(){
+    var saved = stored();
+    if (saved === 'dark' || saved === 'light') root.dataset.theme = saved;
+    else delete root.dataset.theme;
+    root.dataset.effective = saved || (media.matches ? 'dark' : 'light');
+  }
+  apply();
+  media.addEventListener('change', apply);
+  document.getElementById('theme').addEventListener('click', function(){
+    var next = root.dataset.effective === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('theme', next); } catch(e){}
+    apply();
+  });
+
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  function setMenu(open){
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.classList.toggle('locked', open);
+  }
+  burger.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+  menu.addEventListener('click', function(e){ if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+  matchMedia('(min-width:761px)').addEventListener('change', function(e){ if (e.matches) setMenu(false); });
+
+  var cue = document.querySelector('.scroll-cue');
+  addEventListener('scroll', function(){ cue.classList.toggle('hide', window.scrollY > 60); }, { passive:true });
+
+  var reveal = document.getElementById('reveal');
+  var hero = document.getElementById('top');
+  if (matchMedia('(pointer:fine)').matches) {
+    hero.addEventListener('pointermove', function(e){
+      var r = hero.getBoundingClientRect();
+      reveal.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      reveal.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  } else if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var t = 0;
+    setInterval(function(){
+      t += 0.012;
+      reveal.style.setProperty('--mx', (50 + Math.cos(t) * 34) + '%');
+      reveal.style.setProperty('--my', (44 + Math.sin(t * 1.4) * 26) + '%');
+    }, 40);
+  }
+
+  var slots = {};
+  document.querySelectorAll('#count [data-c]').forEach(function(el){ slots[el.dataset.c] = el; });
+  function pad(n){ return n < 10 ? '0' + n : String(n); }
+  function tick(){
+    var diff = TARGET - Date.now();
+    if (diff <= 0) {
+      slots.d.textContent = slots.h.textContent = slots.m.textContent = slots.s.textContent = '00';
+      return;
+    }
+    var s = Math.floor(diff / 1000);
+    slots.d.textContent = pad(Math.floor(s / 86400));
+    slots.h.textContent = pad(Math.floor(s / 3600) % 24);
+    slots.m.textContent = pad(Math.floor(s / 60) % 60);
+    slots.s.textContent = pad(s % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  var cal = document.getElementById('cal');
+  var end = new Date(TARGET.getTime() + 45 * 3600 * 1000);
+  var fmt = function(d){ return d.toISOString().replace(/[-:]|\.\d{3}/g, ''); };
+  cal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent('День подарков на даче — вечер в образах')
+    + '&dates=' + fmt(TARGET) + '/' + fmt(end)
+    + '&details=' + encodeURIComponent('Дресс-код: известная личность. Костюм + манера. Подробности на лендинге.');
+
+  ['wishlist','form'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el.getAttribute('href') === '#') {
+      el.addEventListener('click', function(e){ e.preventDefault(); });
+    }
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fx').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
