@@ -283,14 +283,17 @@
   }
   .mini:hover{color:var(--accent);border-color:var(--line);background:var(--tint)}
 
-  .rules{counter-reset:r;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));margin-bottom:48px}
-  .rule{position:relative;padding:22px 22px 22px 60px;border:1px solid var(--line-soft);border-radius:var(--r);background:var(--tint)}
+  .rules{counter-reset:r;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));margin-bottom:48px}
+  .rule{
+    position:relative;padding:17px 18px 17px 48px;border:1px solid var(--line-soft);
+    border-radius:var(--r);background:var(--tint);transition:border-color .22s;
+  }
+  .rule:hover{border-color:var(--line)}
   .rule::before{
     counter-increment:r;content:counter(r,decimal-leading-zero);
-    position:absolute;left:22px;top:20px;font-family:"Playfair Display",serif;font-size:19px;color:var(--accent);opacity:.8;
+    position:absolute;left:18px;top:17px;font-family:"Playfair Display",serif;font-size:15px;color:var(--accent);opacity:.75;
   }
-  .rule b{display:block;font-weight:500;font-size:16px;margin-bottom:6px}
-  .rule span{color:var(--text-2);font-size:14.5px}
+  .rule b{display:block;font-weight:500;font-size:16px;line-height:1.35}
 
   .cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
   .col-head{display:flex;align-items:center;gap:11px;margin-bottom:18px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
@@ -320,8 +323,7 @@
   .mask-note h3{font-size:24px;margin-bottom:12px}
   .mask-note p{color:var(--text-2);font-size:15.5px}
   .mask-note ul{margin:16px 0 0;padding-left:20px;color:var(--text-2);font-size:15px}
-  .mask-note li{margin-bottom:7px}
-  .mask-note li b{font-weight:500;color:var(--text)}
+  .mask-note .tags{display:flex;gap:8px;flex-wrap:wrap}
 
   .act-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .pending{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.8}
@@ -377,7 +379,7 @@
 
 <nav class="nav">
   <div class="shell nav-in">
-    <a class="brand" href="#top" style="text-decoration:none"><svg><use href="#mask-a"/></svg><span>Инкогнито</span></a>
+    <a class="brand" href="#top" style="text-decoration:none"><svg><use href="#mask-a"/></svg><span>Жизнь — игра</span></a>
     <div class="nav-links">
       <a href="#event">Событие</a>
       <a href="#place">Место</a>
@@ -420,10 +422,10 @@
   <div class="shell hero-in">
     <span class="overline">2–4 октября</span>
     <h1>Никто не придёт <em>собой</em></h1>
-    <p class="lede">2 дня наслаждаемся чистым воздухом. Находясь в обществе, мы вынуждены носить маски. Но что если надеть маску известного человека? Один из вечером раскроет в нас навыки перевоплощения.</p>
+    <p class="lede">Находясь в обществе, мы вынуждены носить маски. Но что если надеть маску известного человека? Один из вечером раскроет в нас навыки перевоплощения.</p>
     <div class="cta">
-      <a class="btn" href="#dress">Выбрать образ</a>
-      <a class="btn ghost" href="#event">Что вообще происходит</a>
+      <a class="btn" href="#event">Что вообще происходит</a>
+      <a class="btn ghost" href="#dress">Выбрать образ</a>
     </div>
     <div class="count" id="count" aria-label="Обратный отсчёт">
       <div><b data-c="d">—</b><span>дней</span></div>
@@ -450,12 +452,12 @@
       <div class="card">
         <div class="num">01</div>
         <h3>Выбираешь личность</h3>
-        <p>Заранее, до приезда. Кого-то, кого узнает вся комната. Никому не говоришь — интрига держится до вечера.</p>
+        <p>Заранее, до приезда. Кого-то, кого узнает вся комната. Никому (или почти никому) не говоришь — интрига держится до вечера.</p>
       </div>
       <div class="card">
         <div class="num">02</div>
         <h3>Собираешь образ</h3>
-        <p>Если выбранная личность выделяется своим стилем в одежде, то можно отразить это характерными чертами или цельным луком. Плюс карнавальная тканевая маска, если нужна.</p>
+        <p>Если выбранная личность выделяется своим стилем в одежде, то можно отразить это характерными чертами или цельным луком.</p>
       </div>
       <div class="card">
         <div class="num">03</div>
@@ -471,7 +473,7 @@
     <div class="head fx">
       <div class="kicker">Где и когда</div>
       <h2>На природе</h2>
-      <p>Мест всем хватит — проверено. Отпишите кто не сможет на оба дня</p>
+      <p>Мест всем хватит — проверено. Сообщите кто не сможет на оба дня.</p>
     </div>
 
     <div class="place fx">
@@ -486,7 +488,7 @@
       <div class="fact">
         <div class="k">Где</div>
         <div class="v">Дача Виктории</div>
-        <div class="s">Недалеко от Сергиева Посада. Точный адрес будет в чате.</div>
+        <div class="s">70 км от Москвы. Недалеко от Сергиева Посада. Точный адрес будет в чате.</div>
       </div>
     </div>
   </div>
@@ -500,13 +502,13 @@
       <p>Единого дресс-кода нет. Есть одно правило: ты приходишь как конкретный известный человек и весь праздничный вечер играешь его. Костюм — половина дела, вторая половина — поведение.</p>
     </div>
 
+    <div class="kicker fx" style="margin-bottom:18px">Из чего собирается образ</div>
     <div class="rules fx">
-      <div class="rule"><b>Стопроцентная узнаваемость</b><span>Если хотя бы трое из гостей не поймут, кто ты, — образ не сработал. Проще всего с русскими и советскими лицами: их знают все поколения за столом.</span></div>
-      <div class="rule"><b>Один сильный маркер</b><span>Усы, кепка, очки, малиновый пиджак, перья, гитара. Деталь, которую видно с другого конца комнаты и по которой опознают за секунду.</span></div>
-      <div class="rule"><b>Есть что пародировать</b><span>Голос, походка, жест, коронная фраза. Костюм без манеры — это просто одежда. Выбирай того, кого можешь показать, а не только надеть.</span></div>
-      <div class="rule"><b>В этом можно провести вечер</b><span>Сидеть, есть, выходить на улицу, обниматься. Конструкция, в которой нельзя сесть за стол, умрёт через двадцать минут.</span></div>
-      <div class="rule"><b>Без дублей</b><span>Кинь в чат, кого берёшь — двух Киркоровых за столом быть не должно. Кто первый занял, того и образ.</span></div>
-      <div class="rule"><b>Без тяжёлых тем</b><span>Диктаторы, трагедии, всё, что упирается в политику и религию, — мимо. Вечер должен быть смешным, а не неловким.</span></div>
+      <div class="rule"><b>Одежда</b></div>
+      <div class="rule"><b>Голос и интонация</b></div>
+      <div class="rule"><b>Известные фразы</b></div>
+      <div class="rule"><b>Аксессуары</b></div>
+      <div class="rule"><b>Маска</b></div>
     </div>
 
     <div class="cols fx">
@@ -514,9 +516,9 @@
         <div class="col-head"><span class="dot"></span>Подходит</div>
 
         <div class="who">
-          <div class="n">Леонид Якубович</div>
-          <div class="tags"><span class="tag">усы, костюм, барабан</span><span class="tag act">«Приз в студию!»</span></div>
-          <div class="why">Голос, интонация ведущего, вручение любого предмета как приза. Карнавальная тканевая маска с его лицом популярнее остальных.</div>
+          <div class="n">Оксимирон</div>
+          <div class="tags"><span class="tag">лысина, тату, нос</span><span class="tag act">Рэпер</span></div>
+          <div class="why">Голос, интонация. Общается рифмами.</div>
         </div>
 
         <div class="who">
@@ -526,34 +528,41 @@
         </div>
 
         <div class="who">
-          <div class="n">Данила Багров</div>
-          <div class="tags"><span class="tag">крупный свитер, плеер</span><span class="tag act">тихо, в лоб, честно</span></div>
-          <div class="why">Персонаж вместо реального человека — тоже отлично, если фильм видели все. Реквизит — из своего шкафа.</div>
+          <div class="n">Иван Золо</div>
+          <div class="tags"><span class="tag">одежда, мимика, прическа</span><span class="tag act">с другой планеты</span></div>
+          <div class="why">Легко пародировать, просто отключаешь мозг.</div>
         </div>
+      </div>
 
       <div class="no">
         <div class="col-head"><span class="dot"></span>Не вариант</div>
 
         <div class="who">
           <div class="n">Кира Найтли</div>
-          <div class="why">Нет особого стиля в одежде, особенностей поведения, черт характера, выраженного мнения на базовые темы. Просто красивая женщина, сложно угадывать и еще сложнее пародировать</div>
+          <div class="why">Нет уникального стиля в одежде, особенностей поведения, черт характера. Сложно угадывать и еще сложнее пародировать.</div>
         </div>
 
+        <div class="who">
+          <div class="n">Yanix</div>
+          <div class="why">Не все могут быть знакомы с творчеством, мало отличительных черт. Не является ни комичным, ни колоритным.</div>
+        </div>
+      </div>
     </div>
 
     <div class="mask-note fx">
       <div class="icon"><svg viewBox="0 0 100 122"><use href="#mask-b"/></svg></div>
       <div>
-        <h3>Про карнавальную тканевую маску</h3>
-        <p>Тканевые маски с лицами знаменитостей (Якубович — классика жанра) стоят копейки, ищутся по запросу «карнавальная тканевая маска» на любом маркетплейсе и решают проблему сходства за один вечер. Брать её стоит в двух случаях.</p>
-        <ul>
-          <li><b>Для полного погружения.</b> Костюм и манера уже собраны, и хочется, чтобы сходство било наотмашь с первой секунды — на выход, на угадывание, на фото.</li>
-          <li><b>Если у персонажа нет невербальных черт.</b> Некого копировать походкой и жестами: узнаваемость держится только на лице. Тогда маска и делает всю работу.</li>
-          <li>Заказывай заранее — доставка может занять неделю-полторы.</li>
-          <li>Носи её эпизодами: в ней жарко, плохо слышно и неудобно есть.</li>
-          <li>Маска закрывает мимику — а мимика тут половина игры. Сняв её, продолжай держать манеру и голос.</li>
-          <li>Маска — усилитель, а не замена образу. Костюм и поведение всё равно нужны.</li>
-        </ul>
+        <h3>Маски</h3>
+        <p>Для полного погружения в образ. Ищутся на любом маркетплейсе.</p>
+        <div class="tags" style="margin-top:16px">
+          <span class="tag">карнавальная тканевая</span>
+          <span class="tag">латексная на всю голову</span>
+          <span class="tag">пластиковая на резинке</span>
+          <span class="tag">картонная на палочке</span>
+          <span class="tag">венецианская полумаска</span>
+          <span class="tag">накладные усы и брови</span>
+          <span class="tag">грим</span>
+        </div>
       </div>
     </div>
   </div>
@@ -564,11 +573,10 @@
     <div class="head fx" style="margin-bottom:26px">
       <div class="kicker">Подарки</div>
       <h2>«Ой, ну не стоило»</h2>
-      <p>День подарков — чисто формальное название, в любом случае буду рад организовать торжество и лишний раз собрать компанию приятных людей под крышей любимой дачи. Но подарки это тоже здорово, жаль что мне особо ничего не нужно. Если появятся идеи, то создам вишлист</p>
+      <p>День подарков — чисто формальное название, в любом случае буду рад организовать торжество и лишний раз собрать компанию приятных людей под крышей любимой дачи. Но подарки это тоже здорово, жаль что мне особо ничего не нужно. Если появятся идеи, то создам вишлист (не позже 12 сентября).</p>
     </div>
     <div class="act-row fx">
-      <a class="btn" id="wishlist" href="#" aria-disabled="true" target="_blank" rel="noopener">Открыть вишлист</a>
-      <span class="pending">Ссылка появится здесь</span>
+      <a class="btn" id="wishlist" href="https://followish.io/mywishlist/ed4bsmgglczdyb" target="_blank" rel="noopener">Открыть вишлист</a>
     </div>
   </div>
 </section>
@@ -578,11 +586,10 @@
     <div class="head fx" style="margin-bottom:26px">
       <div class="kicker">Пожелания</div>
       <h2>Заказ алкоголя</h2>
-      <p>Короткая форма на 2 минуты: какой алкоголь хотите, пожелания по еде, другие идеи</p>
+      <p>Короткая форма на 2 минуты: какой алкоголь хотите, пожелания по еде, другие идеи.</p>
     </div>
     <div class="act-row fx">
-      <a class="btn" id="form" href="#" aria-disabled="true" target="_blank" rel="noopener">Заполнить форму</a>
-      <span class="pending">Ссылка появится здесь</span>
+      <a class="btn" id="form" href="https://forms.yandex.ru/u/6a9e8f7aeb6146d178cfb00d" target="_blank" rel="noopener">Заполнить форму</a>
     </div>
   </div>
 </section>
