@@ -1,0 +1,342 @@
+:root {
+  --paper: #f5f4ef;
+  --ink: #252e29;
+  --muted: #666c65;
+  --line: #d9dcd2;
+  --accent: #ad4933;
+  --green: #74856b;
+  --white: #fdfdf9;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 30px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; font-size: 16px; line-height: 1.65; }
+a { color: inherit; text-underline-offset: 4px; }
+a:hover { color: var(--accent); }
+button, input, select { font: inherit; }
+button, summary, select { cursor: pointer; }
+button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
+.wrap { max-width: 1200px; margin: auto; padding-left: 40px; padding-right: 40px; }
+.header { min-height: 100px; display: flex; justify-content: space-between; align-items: center; gap: 28px; border-bottom: 1px solid var(--line); }
+.brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-size: 13px; font-weight: 750; white-space: nowrap; letter-spacing: .7px; }
+.brand-symbol { width: 27px; height: 27px; display: grid; place-items: center; color: var(--paper); background: var(--ink); font-size: 22px; font-weight: 400; }
+.brand-divider { color: #a4a89e; margin: 0 3px; }
+.brand-sub { font-weight: 400; color: var(--muted); letter-spacing: 0; }
+nav { display: flex; gap: 23px; }
+nav a, .source-top { text-decoration: none; font-size: 13px; }
+.source-top { border-bottom: 1px solid var(--ink); padding: 5px 0; }
+.hero { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: 65px; padding-top: 72px; padding-bottom: 65px; }
+.eyebrow { font-size: 11px; font-weight: 650; letter-spacing: 1.65px; margin: 0 0 22px; }
+.dot { width: 7px; height: 7px; display: inline-block; border-radius: 50%; background: var(--accent); margin-right: 8px; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-size: clamp(42px, 5.3vw, 67px); font-weight: 550; line-height: 1.08; letter-spacing: -3px; margin-bottom: 24px; }
+h1 span { color: var(--accent); }
+h2 { font-size: clamp(30px, 3.3vw, 42px); font-weight: 500; line-height: 1.2; letter-spacing: -1.4px; margin-bottom: 20px; }
+h3 { font-size: 22px; line-height: 1.3; font-weight: 550; letter-spacing: -.4px; margin-bottom: 15px; }
+p { margin-bottom: 16px; }
+.intro { max-width: 440px; font-size: 17px; color: var(--muted); line-height: 1.65; }
+.small { font-size: 12px; line-height: 1.65; }
+.muted { color: var(--muted); }
+.button { display: inline-flex; justify-content: space-between; gap: 35px; align-items: center; background: var(--ink); color: #fff; padding: 15px 23px; border: 1px solid var(--ink); text-decoration: none; font-size: 13px; margin: 13px 0 21px; }
+.button:hover { background: #3c493f; color: white; }
+.button span { font-size: 20px; }
+.case-sheet { background: #eeefe7; border: 1px solid #d4d8cb; padding: 27px; transform: rotate(1deg); }
+.sheet-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 10px; letter-spacing: 1.3px; }
+.pill { display: inline-block; border: 1px solid var(--line); border-radius: 40px; padding: 4px 10px; font-size: 10px; font-weight: 400; letter-spacing: 0; white-space: nowrap; }
+.road { width: 100%; height: auto; margin-top: 28px; }
+.diagram-note { font-size: 9px; color: var(--muted); text-align: right; margin: 4px 0 24px; }
+.case-row { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-top: 1px solid #d1d5c8; font-size: 13px; }
+.case-row strong { font-weight: 550; }
+.sheet-note { border-top: 1px solid #d1d5c8; padding-top: 17px; font-size: 12px; color: var(--muted); margin-bottom: 0; }
+.takeaway { display: flex; gap: 30px; align-items: baseline; padding: 25px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tag { color: var(--accent); letter-spacing: 1.5px; font-size: 10px; font-weight: 700; }
+.takeaway p { font-size: 15px; margin: 0; }
+p a[href^="#s"] { color: var(--accent); font-size: .85em; white-space: nowrap; }
+.section { padding-top: 85px; padding-bottom: 75px; }
+.section-heading { max-width: 760px; margin-bottom: 35px; }
+.section-heading > p:last-child { color: var(--muted); font-size: 15px; }
+.cars { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.car-card { border: 1px solid var(--line); background: var(--white); padding: 30px; }
+.car-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.number { font-size: 13px; color: var(--muted); }
+.car-card h3 { font-size: 29px; margin-bottom: 5px; }
+.car-description { color: var(--muted); font-size: 13px; min-height: 44px; }
+.car-price { font-size: 46px; letter-spacing: -2px; font-weight: 500; line-height: 1.25; margin: 24px 0 18px; }
+.car-price span { font-size: 19px; letter-spacing: -.5px; }
+.car-card > p:not(.car-price) { font-size: 14px; }
+details { border-top: 1px solid var(--line); margin-top: 24px; }
+summary { padding: 17px 22px 17px 0; font-size: 13px; font-weight: 550; position: relative; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; position: absolute; right: 0; top: 10px; font-size: 24px; font-weight: 300; }
+details[open] > summary::after { content: '−'; }
+.detail-body { font-size: 13px; padding: 4px 0 10px; }
+.breakdown { margin: 0 0 20px; }
+.breakdown div { display: flex; justify-content: space-between; gap: 15px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.breakdown dd { white-space: nowrap; margin: 0; }
+.price-evidence { margin: 25px 0 45px; padding-left: 20px; border-left: 2px solid #9ca98e; }
+.price-evidence h3 { font-size: 15px; }
+.price-evidence p { font-size: 13px; }
+.calculator { border: 1px solid var(--line); padding: 35px; background: #eeefe8; }
+.calc-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+.calc-head .eyebrow { margin-bottom: 10px; }
+.calculator > p { font-size: 13px; }
+.presets { display: flex; gap: 8px; flex-wrap: wrap; margin: 23px 0 30px; }
+.presets button { border: 1px solid #cbd0c2; background: transparent; border-radius: 4px; font-size: 12px; padding: 9px 15px; color: var(--ink); }
+.presets button[aria-pressed="true"] { background: var(--ink); color: white; border-color: var(--ink); }
+.calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+fieldset { border: none; padding: 0; margin: 0; min-width: 0; }
+legend { font-size: 17px; font-weight: 550; margin-bottom: 12px; }
+fieldset label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+input[type="number"], select { width: 100%; border: 1px solid #cbd0c2; border-radius: 0; color: var(--ink); background: var(--white); padding: 12px 14px; margin-bottom: 16px; }
+input[aria-invalid="true"] { border: 2px solid var(--accent); }
+.calc-result { margin-top: 14px; margin-bottom: 20px; padding-top: 25px; border-top: 1px solid #ccd1c2; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 35px; }
+.calc-result output { display: block; font-size: clamp(30px, 4vw, 46px); line-height: 1.3; letter-spacing: -1.6px; color: var(--accent); margin: 9px 0; }
+.calc-result p { font-size: 12px; color: var(--muted); }
+.legend { display: flex; justify-content: space-between; gap: 10px; font-size: 10px; }
+.legend b { font-weight: 500; display: block; margin-left: 13px; font-size: 13px; }
+.legend i { display: inline-block; width: 7px; height: 7px; margin-right: 6px; }
+.covered { background: var(--green); }
+.uncovered { background: #c86d54; }
+.bar { background: #c86d54; height: 14px; margin: 14px 0 10px; display: flex; }
+.bar span { background: var(--green); height: 100%; transition: width .25s; }
+.error { color: #9c2816; margin-top: 10px; }
+.insurance-band { background: #28392f; color: #f1f2e9; }
+.insurance-band .eyebrow { color: #bdc9b7; }
+.insurance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.insurance-grid article + article { border-left: 1px solid #55654f; padding-left: 45px; }
+.insurance-label { color: #b9c6b1; font-size: 10px; letter-spacing: 1.6px; }
+.insurance-grid h3 { font-size: 30px; margin: 8px 0 24px; }
+.insurance-number { font-size: 29px; letter-spacing: -1px; }
+.insurance-number span { display: block; font-size: 12px; letter-spacing: 0; color: #bbc8b6; }
+.insurance-grid article > p:not(.insurance-number) { font-size: 14px; color: #d6ddcf; }
+.insurance-band p a[href^="#s"], .insurance-band a { color: #e2c9a9; }
+.insurance-note { display: flex; gap: 20px; border-top: 1px solid #55654f; padding-top: 28px; margin-top: 32px; }
+.insurance-note > span { font-family: Georgia, serif; font-size: 32px; color: #dcc0a3; }
+.insurance-note p { font-size: 14px; }
+.dark-details { border-color: #55654f; }
+.process-list article { display: grid; grid-template-columns: 43px 1fr 150px; gap: 25px; padding: 28px 0; border-top: 1px solid var(--line); }
+.step { border: 1px solid #bfc8b6; border-radius: 50%; width: 35px; height: 35px; display: grid; place-items: center; font-size: 13px; }
+.process-list h3 { font-size: 20px; }
+.process-list p { color: var(--muted); font-size: 14px; }
+.step-label { font-size: 9px; color: var(--muted); letter-spacing: 1px; text-align: right; padding-top: 7px; }
+.timeline-section { border-top: 1px solid var(--line); }
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 48px; }
+.timeline article { border-top: 1px solid #b7bfae; position: relative; padding-top: 27px; }
+.time-dot { position: absolute; width: 9px; height: 9px; background: var(--accent); border-radius: 50%; top: -5px; left: 0; }
+.timeline .eyebrow { font-size: 9px; letter-spacing: 1px; min-height: 29px; margin-bottom: 10px; }
+.timeline h3 { font-size: 21px; min-height: 55px; }
+.timeline p:last-child { font-size: 13px; color: var(--muted); }
+.notice { border-left: 3px solid var(--accent); background: #eee8dd; padding: 24px 28px; margin-top: 25px; font-size: 13px; }
+.notice strong { display: block; font-size: 16px; margin-bottom: 10px; }
+.notice p:last-child { margin-bottom: 0; }
+.payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.payment-options article { border-top: 1px solid #b7bfae; padding-top: 20px; display: flex; flex-direction: column; }
+.option-index { color: var(--accent); font-size: 10px; letter-spacing: 1px; margin-bottom: 15px; }
+.payment-options h3 { font-size: 22px; }
+.payment-options p { font-size: 14px; color: var(--muted); }
+.option-foot { font-size: 12px; color: #45583b; margin-top: auto; padding-top: 10px; }
+.payment-calculator { display: grid; grid-template-columns: 1.5fr 1fr; gap: 55px; align-items: center; background: #e9ecdf; padding: 32px; margin-top: 35px; }
+.payment-calculator h3 { font-size: 33px; }
+.payment-calculator .eyebrow { margin-bottom: 14px; }
+.payment-calculator p { font-size: 13px; }
+.term-control label { display: block; font-size: 13px; margin-bottom: 10px; }
+.extra { margin-top: 30px; border-bottom: 1px solid var(--line); }
+.checklist-section { background: #e7e9e0; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding-top: 42px; padding-bottom: 35px; }
+.checklist-section h2 { font-size: 32px; }
+.checklist-section p { font-size: 13px; color: var(--muted); }
+.secondary { background: transparent; color: var(--ink); }
+.checklist label { display: flex; gap: 13px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid #cbd0c2; font-size: 13px; cursor: pointer; }
+.checklist input { accent-color: #41553a; width: 17px; height: 17px; flex-shrink: 0; margin: 3px 0 0; }
+.checklist input:checked + span { color: #526448; text-decoration: line-through; }
+.assumptions { font-size: 13px; color: var(--muted); max-width: 900px; }
+.assumptions h3 { font-size: 16px; color: var(--ink); }
+.source-list { display: grid; grid-template-columns: 1fr 1fr; column-gap: 45px; row-gap: 0; padding-left: 23px; margin-top: 30px; font-size: 12px; }
+.source-list li { padding: 15px 0 15px 7px; border-top: 1px solid var(--line); }
+.source-list li::marker { color: var(--accent); }
+.source-list span { display: block; color: var(--muted); font-size: 11px; margin-top: 5px; }
+.source-list li:target { background: #e4e8d7; outline: 8px solid #e4e8d7; }
+.footer { border-top: 1px solid var(--line); padding-top: 28px; padding-bottom: 30px; display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+.footer p, .footer > a:last-child { font-size: 10px; color: var(--muted); margin: 0; }
+.skip { position: absolute; top: -80px; left: 20px; padding: 10px; background: white; z-index: 3; }
+.skip:focus { top: 10px; }
+[hidden] { display: none !important; }
+
+@media (max-width: 1000px) {
+  .wrap { padding-left: 28px; padding-right: 28px; }
+  .hero { gap: 30px; }
+  .header .brand-sub, .header .brand-divider { display: none; }
+  .timeline { grid-template-columns: 1fr 1fr; gap: 35px; }
+  .timeline h3, .timeline .eyebrow { min-height: 0; }
+  .process-list article { grid-template-columns: 40px 1fr; }
+  .step-label { display: none; }
+  .payment-options { gap: 20px; }
+}
+
+@media (max-width: 700px) {
+  .wrap { padding-left: 21px; padding-right: 21px; }
+  .header { flex-wrap: wrap; min-height: 100px; gap: 12px; padding-top: 20px; padding-bottom: 15px; }
+  nav { order: 3; width: 100%; justify-content: space-between; gap: 12px; }
+  nav a { font-size: 12px; }
+  .source-top { font-size: 11px; }
+  .hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 35px; gap: 30px; }
+  h1 { font-size: 51px; letter-spacing: -2px; }
+  .eyebrow { font-size: 9px; letter-spacing: 1.1px; }
+  .intro { font-size: 15px; }
+  .case-sheet { transform: none; padding: 23px; }
+  .takeaway { display: block; }
+  .takeaway .tag { display: block; margin-bottom: 9px; }
+  .takeaway p { font-size: 14px; }
+  .section { padding-top: 55px; padding-bottom: 45px; }
+  .section-heading { margin-bottom: 25px; }
+  .section-heading > p:last-child { font-size: 14px; }
+  .cars, .calc-inputs, .calc-result, .insurance-grid, .payment-options, .payment-calculator, .checklist-section, .source-list { grid-template-columns: 1fr; }
+  .car-card { padding: 25px; }
+  .car-description { min-height: 0; }
+  .calculator { padding: 23px; }
+  .calc-head > .pill { display: none; }
+  .calc-inputs { gap: 15px; }
+  .calc-result { gap: 10px; }
+  .presets button { flex: 1 1 100%; }
+  .insurance-grid { gap: 25px; }
+  .insurance-grid article + article { border-left: 0; border-top: 1px solid #55654f; padding: 27px 0 0; }
+  .process-list article { gap: 13px; grid-template-columns: 32px 1fr; }
+  .step { width: 28px; height: 28px; }
+  .process-list h3 { font-size: 18px; }
+  .timeline { grid-template-columns: 1fr; gap: 20px; }
+  .timeline h3 { margin-bottom: 12px; }
+  .timeline .eyebrow { margin-bottom: 9px; }
+  .notice { padding: 20px; }
+  .payment-options { gap: 28px; }
+  .payment-calculator { padding: 24px; gap: 20px; }
+  .payment-calculator h3 { font-size: 29px; }
+  .checklist-section { gap: 15px; padding-top: 35px; padding-bottom: 35px; }
+  .source-list { padding-left: 20px; }
+  .footer { flex-wrap: wrap; }
+  .footer p { order: 3; width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bar span { transition: none; }
+}
+
+
+/* Compact reading layout and native disclosures. */
+.compact-list { padding-left: 20px; margin: 12px 0 18px; font-size: 14px; }
+.compact-list li + li { margin-top: 9px; }
+.insurance-grid .compact-list { color: #d6ddcf; }
+.process-step { margin: 0; }
+.process-step:last-child { border-bottom: 1px solid var(--line); }
+.process-step > summary { display: grid; grid-template-columns: 36px 1fr; gap: 20px; padding: 24px 40px 24px 0; }
+.process-step > summary::after { top: 30px; }
+.step-copy { display: block; min-width: 0; }
+.step-timing { display: block; font-size: 10px; letter-spacing: 1px; color: var(--accent); margin-bottom: 5px; }
+.step-title { display: block; font-size: 20px; line-height: 1.35; font-weight: 600; }
+.step-description { display: block; font-size: 14px; color: var(--muted); font-weight: 400; margin-top: 7px; }
+.process-step > .detail-body { padding: 0 40px 16px 56px; }
+.process-step[open] { background: #eeefe8; }
+.process-step[open] > summary { padding-left: 12px; }
+.assumptions { max-width: none; border-bottom: 1px solid var(--line); }
+.assumptions > summary { font-size: 16px; color: var(--ink); }
+.notice strong { display: inline; }
+.notice > strong { display: block; }
+.price-evidence { margin-bottom: 28px; }
+
+@media (max-width: 700px) {
+  body { line-height: 1.55; }
+  .wrap { padding-left: 18px; padding-right: 18px; }
+  .header { gap: 8px; padding-top: 12px; padding-bottom: 4px; }
+  nav { gap: 14px; overflow-x: auto; justify-content: flex-start; }
+  nav a { padding: 12px 0; white-space: nowrap; }
+  .source-top { padding: 12px 0; border-bottom: 0; }
+  .hero { padding-top: 28px; padding-bottom: 26px; gap: 20px; }
+  h1 { font-size: clamp(39px, 10vw, 51px); }
+  h2 { font-size: 29px; letter-spacing: -.9px; }
+  .eyebrow { margin-bottom: 14px; }
+  .case-sheet { padding: 18px; }
+  .road { max-height: 125px; }
+  .sheet-top { letter-spacing: .5px; }
+  .section { padding-top: 36px; padding-bottom: 32px; }
+  .section-heading { margin-bottom: 22px; }
+  .car-card, .calculator, .payment-calculator { padding: 18px; }
+  .car-card h3 { font-size: 26px; }
+  .car-price { margin-top: 18px; }
+  .car-card .car-price[style] { font-size: 27px !important; }
+  .calc-head h3 { font-size: 23px; }
+  .calc-inputs { gap: 14px; }
+  input[type="number"], select { font-size: 16px; min-height: 48px; }
+  .presets { margin: 16px 0 22px; }
+  .presets button { min-height: 46px; font-size: 13px; }
+  summary { min-height: 48px; font-size: 14px; }
+  .detail-body, .process-list p { font-size: 14px; }
+  .process-step > summary { grid-template-columns: 28px 1fr; gap: 12px; padding: 20px 25px 20px 0; }
+  .process-step > summary::after { top: 21px; }
+  .step-title { font-size: 18px; }
+  .step-timing { font-size: 9px; letter-spacing: .6px; }
+  .step-description { font-size: 14px; }
+  .process-step > .detail-body { padding: 0 12px 12px; }
+  .process-step[open] > summary { padding-left: 8px; }
+  .notice { padding: 16px; }
+  .notice .compact-list { font-size: 14px; }
+  .payment-calculator h3 { font-size: 27px; }
+  .checklist label { min-height: 48px; font-size: 14px; }
+  .checklist input { width: 20px; height: 20px; }
+  .source-list a { overflow-wrap: anywhere; }
+}
+
+
+/* Start with the decision summary; keep scenario controls beside the result. */
+#main { padding-top: 30px; }
+.takeaway { display: block; padding: 26px 0 20px; }
+.takeaway h1 { font-size: 36px; letter-spacing: -1px; margin-bottom: 18px; }
+.takeaway .compact-list { max-width: 850px; font-size: 16px; margin-bottom: 0; }
+.presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
+.presets button { padding: 12px 8px; min-width: 0; }
+.presets strong, .presets button span { display: block; }
+.presets strong { font-size: 14px; font-weight: 600; }
+.presets button span { font-size: 11px; margin-top: 4px; }
+.calc-result { margin-top: 0; padding-top: 18px; }
+.calc-note { margin-bottom: 8px; }
+.custom-calculation { margin-top: 12px; }
+.car-price { font-size: 38px; letter-spacing: -1.5px; }
+.car-price span { font-size: 17px; }
+.cars { margin-bottom: 26px; }
+
+@media (max-width: 700px) {
+  #main { padding-top: 0; }
+  .takeaway { padding-top: 24px; }
+  .takeaway h1 { font-size: 30px; }
+  .takeaway .compact-list { font-size: 15px; }
+  .car-price { font-size: 32px; letter-spacing: -1px; }
+  .car-price span { font-size: 15px; }
+  .presets { gap: 6px; }
+  .presets button { padding: 10px 3px; }
+  .presets strong { font-size: 13px; }
+  .presets button span { font-size: 10px; }
+  .calc-result { padding-top: 12px; margin-bottom: 12px; }
+  .calc-result output { margin: 4px 0; font-size: 36px; }
+  .calc-bars .bar { margin: 8px 0; }
+  .calc-result p { margin-bottom: 6px; }
+}
+
+@media print {
+  body { background: white; font-size: 11px; color: black; }
+  .wrap { max-width: none; padding-left: 0; padding-right: 0; }
+  .header nav, .source-top, .button, .presets, .skip, .road, .diagram-note, .footer > a:last-child { display: none; }
+  .header { min-height: 40px; }
+  .hero { padding: 25px 0; gap: 25px; }
+  h1 { font-size: 38px; }
+  h2 { font-size: 26px; }
+  .section { padding: 30px 0; }
+  .insurance-band { color: black; background: #f1f1ed; padding: 15px; }
+  .insurance-band p, .insurance-band .eyebrow, .insurance-band .insurance-label, .insurance-number span, .insurance-band a { color: black !important; }
+  .case-sheet { transform: none; }
+  .car-card, .calculator, .payment-calculator, .checklist-section { break-inside: avoid; }
+  .timeline { grid-template-columns: 1fr 1fr; }
+  .source-list { grid-template-columns: 1fr; }
+  .source-list a[href]::after { content: " (" attr(href) ")"; display: block; font-size: 8px; word-break: break-all; color: #555; }
+  a { text-decoration: none; }
+  input, select { border-color: #aaa; }
+  summary::after { display: none; }
+}
